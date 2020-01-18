@@ -1,46 +1,33 @@
 {% extends 'homepage/base.html' %}
 {% load static %}
-
 {% block title %}
     <title>Главная</title>
 {% endblock %}
 
 {% block body %}
 <div id="mainsloi-sohr">
-<div id="sloi-1" style="display: block; background: rgba(0, 0, 0, 0) url(
-    {% autoescape off %}
-        {% for key, value in image.items %}
-            {% if key == "mainbuilding" %}
-                {{ value }}
-            {% endif %}
-        {% endfor %}
-    {% endautoescape %}
-) no-repeat scroll 0% 0% / 100%; width: 500px; height: 600px;">
-        <svg id="svgmainid-sloi-1" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="500" height="600" viewBox="0 0 500 600" preserveAspectRatio="xMinYMin meet" fixpropchecked="true">
-            <a href="#poligon" id="apoly-1" onclick="perehodKSloy('sloi-2')"><polygon id="poly-1" points=" 168,367 160,384 168,388 174,372" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" stroke="#333333"></polygon></a></svg>
-    </div>
 
-    <div id="sloi-2"  style="display: none; background: rgba(0, 0, 0, 0) url(
-    {% autoescape off %}
-        {% for key, value in image.items %}
-            {% if key == "hoz_korp" %}
-                {{ value }}
-            {% endif %}
-        {% endfor %}
-    {% endautoescape %}
-    ) no-repeat scroll 0% 0% / 100%; width: 500px; height: 500px;">
-        <svg id="svgmainid-sloi-1"  xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet" fixpropchecked="true">
-            <a href="#poligon" id="apoly-2"><polygon id="poly-2" points=" 230,361 230,308 186,309 186,362 229,360" ></polygon></a>
-            <a href="#poligon" id="apoly-4"><polygon id="poly-4" points=" 99,290 153,292 153,364 98,363" ></polygon></a>
-            <a href="#poligon" id="apoly-5"><polygon id="poly-5" points=" 99,217 99,290 217,288 217,219" ></polygon></a>
-            <a href="#poligon" id="apoly-6"><polygon id="poly-6" points=" 221,217 220,288 359,288 359,255 400,254 401,217" ></polygon></a>
-            <a href="#poligon" id="apoly-7"><polygon id="poly-7" points=" 362,258 360,287 402,289 400,259" ></polygon></a>
-            <a href="#poligon" id="apoly-8"><polygon id="poly-8" points=" 344,292 345,292 344,362 403,363 402,293" ></polygon></a>
-            <a href="#poligon" id="apoly-9"><polygon id="poly-9" points=" 308,314 344,315 343,363 308,363" ></polygon></a>
-            <a href="#poligon" id="apoly-10"><polygon id="poly-10" points=" 308,291 308,313 343,313 343,293" ></polygon></a>
-            <a href="#poligon" id="apoly-11"><polygon id="poly-11" points=" 154,310 185,309 185,363 153,362" ></polygon></a>
-        </svg>
-</div>
+    {% for key, value in image.items %}
+        {% if key %}
+            <script type="text/javascript">
+                var decodeEntities = (function() {
+                    var element = document.createElement('div');
+                    function decodeHTMLEntities (str) {
+                        if(str && typeof str === 'string') {
+                            str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+                            str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+                            element.innerHTML = str;
+                            str = element.textContent;
+                            element.textContent = '';
+                        }
+                        return str;
+                    }
+                    return decodeHTMLEntities;
+                })();
+                document.getElementById('mainsloi-sohr').innerHTML+=(decodeEntities("{{ value }}"));
+            </script>
+        {% endif %}
+    {% endfor %}
 </div>
 
 <script type="text/javascript">
