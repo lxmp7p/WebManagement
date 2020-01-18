@@ -24,3 +24,10 @@
 	fill: #FFDBA4;
 	cursor: pointer;
 }
+
+.container {
+	max-width: 500px;
+}
+
+polygon{opacity:0.0;}
+polygon:hover{opacity:1.0;}
