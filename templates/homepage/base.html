@@ -15,22 +15,18 @@
   <nav class="navbar navbar-expand-lg nnavbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li><a class="btn btn-outline-success my-2 my-sm-0" href="/" tabindex="-1" aria-disabled="true">Главная</a></li>
+        <li><a class="btn btn-outline-success my-2 my-sm-0" href="../homepage/" tabindex="-1" aria-disabled="true">Главная</a></li>
     </ul>
     <form class="form-inline my-2 my-lg-0" method="get">
 
         {% if username %}
-        <li><a class="btn btn-outline-success my-2 my-sm-0" href="../loginsys/logout/" tabindex="-1" aria-disabled="true">Выйти ({{ username }})</a></li>
+        <li><a class="btn btn-outline-success my-2 my-sm-0" href="../logout/" tabindex="-1" aria-disabled="true">Выйти ({{ username }})</a></li>
     </form>
   </div>
 </nav>
-    <div class="container">
-        {% block body %}
-            <h1>kek</h1>
-        {% endblock %}
-        <hr>
+    {% block body %}
 
-    </div>
+    {% endblock %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'js/jquery.slim.min.js' %}"></script>

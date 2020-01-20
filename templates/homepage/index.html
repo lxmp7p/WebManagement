@@ -5,35 +5,54 @@
 {% endblock %}
 
 {% block body %}
-<div id="mainsloi-sohr">
-
-    {% for key, value in image.items %}
-        {% if key %}
-            <script type="text/javascript">
-                var decodeEntities = (function() {
-                    var element = document.createElement('div');
-                    function decodeHTMLEntities (str) {
-                        if(str && typeof str === 'string') {
-                            str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
-                            str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
-                            element.innerHTML = str;
-                            str = element.textContent;
-                            element.textContent = '';
+<div class="container">
+    <div id="mainsloi-sohr">
+        {% for key, value in image.items %}
+            {% if key %}
+                <script type="text/javascript">
+                    var decodeEntities = (function () {
+                        let element = document.createElement('div');
+                        function decodeHTMLEntities(str) {
+                            if (str && typeof str === 'string') {
+                                str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+                                str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+                                element.innerHTML = str;
+                                str = element.textContent;
+                                element.textContent = '';
+                            }
+                            return str;
                         }
-                        return str;
-                    }
-                    return decodeHTMLEntities;
-                })();
-                document.getElementById('mainsloi-sohr').innerHTML+=(decodeEntities("{{ value }}"));
-            </script>
-        {% endif %}
-    {% endfor %}
+                        return decodeHTMLEntities;
+                    })();
+                    document.getElementById('mainsloi-sohr').innerHTML+=(decodeEntities("{{ value }}"));
+                </script>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<div id="divtable" class="container" style="display: none">
+    <table id="equip_table" class="table border" style="margin-top: 50px" >
+        <tr class=''>
+            <td>id</td>
+            <td>equip_name</td>
+            <td>serial_id</td>
+            <td>room</td>
+        </tr>
+        {% for equip in equipment %}
+            <tr class='success'>
+                <td>{{ equip.id }}</td>
+                <td>{{ equip.equip_name }}</td>
+                <td>{{ equip.serial_id }}</td>
+                <td>{{ equip.room }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 </div>
 
 <script type="text/javascript">
     function perehodKSloy(idSloya)
     {
-
         const mainsloi = document.getElementById('mainsloi-sohr');
         const slArr = [];
 
@@ -55,5 +74,27 @@
             }
         }
     }
+
+    function filter_table(room) {
+        let input,filter, table, tr, td, i, txtValue;
+        input = room;
+        filter = input.toString().toUpperCase();
+        table = document.getElementById("equip_table");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[3];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+            }
+        }
+        document.getElementById("divtable").style.display = "";
+    }
 </script>
 {% endblock %}
+

@@ -5,6 +5,6 @@ from django.conf.urls import url
 app_name = 'login'
 
 urlpatterns = [
-    path('login/', login, name='login'),
+    path('', login, name='login'),
     path('logout/', logout, name='logout'),
 ]
