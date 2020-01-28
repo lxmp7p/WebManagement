@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cd29ed0-08d0-4ce2-8657-e7e9c50bcfe7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webNII.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webNII.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homepage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/homepage/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homepage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="3cd29ed0-08d0-4ce2-8657-e7e9c50bcfe7" name="Default" comment="select etazh" />
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -329,6 +322,14 @@
       <updated>1579105558723</updated>
       <workItem from="1579358858252" duration="4811000" />
     </task>
+    <task id="LOCAL-00001" summary="select etazh">
+      <created>1579950413245</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579950413245</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -342,16 +343,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.4989339" weight="0.3297414" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5021322" side_tool="true" visible="true" weight="0.3297414" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" visible="true" weight="0.3297414" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.49946696" visible="true" weight="0.3297414" />
       <window_info anchor="bottom" id="Python Console" order="13" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4978678" visible="true" weight="0.3297414" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4978678" weight="0.3297414" />
       <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.07356077" />
       <window_info anchor="bottom" id="Find" order="2" />
@@ -373,6 +373,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="select etazh" />
+    <option name="LAST_COMMIT_MESSAGE" value="select etazh" />
   </component>
   <component name="WindowStateProjectService">
     <state x="336" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579358684756">
