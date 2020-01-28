@@ -39,13 +39,64 @@
             <td>equip_name</td>
             <td>serial_id</td>
             <td>room</td>
+            <td></td>
+            <td></td>
         </tr>
         {% for equip in equipment %}
             <tr class='success'>
-                <td>{{ equip.id }}</td>
-                <td>{{ equip.equip_name }}</td>
-                <td>{{ equip.serial_id }}</td>
-                <td>{{ equip.room }}</td>
+                <form method="POST">
+                    {% csrf_token %}
+                    <td>
+                        {{ equip.id }}
+                        <input type="hidden" value="{{ equip.id }}" id="id" name="id">
+                    </td>
+
+                    <td>
+                        <div id="edit_repl">
+                            {{ equip.equip_name }}
+                        </div>
+                        <div id="edit_field" style="display: none">
+                            <input type="text" value="{{ equip.equip_name }}" id="equip_name" name="equip_name">
+                        </div>
+                    </td>
+                    <td>
+                        <div id="edit_repl">
+                            {{ equip.serial_id }}
+                        </div>
+                        <div id="edit_field" style="display: none">
+                            <input type="text" value="{{ equip.serial_id }}" id="serial_id" name="serial_id">
+                        </div>
+                    </td>
+                    <td>
+                        <div id="edit_repl">
+                            {{ equip.room }}
+                        </div>
+                        <div id="edit_field" style="display: none">
+                            <input type="text" value="{{ equip.room }}" id="room" name="room">
+                        </div>
+                    </td>
+                    <td>
+                        <input type="hidden" id="edit" name="edit" value="true">
+                        <input type="hidden" id="addnew" name="addnew" value="false">
+                        <input type="hidden" id="delete" name="delete" value="false">
+                        <div id="edit_repl">
+                            <input type="button" value="Edit" onclick="editrow('{{ equip.id }}')">
+                        </div>
+                        <div id="edit_field" style="display: none">
+                            <input type="submit" value="Submit" id="edit_field">
+                        </div>
+                    </td>
+                </form>
+                <form method="post">
+                    {% csrf_token %}
+                    <td>
+                        <input type="hidden" id="edit" name="edit" value="false">
+                        <input type="hidden" id="addnew" name="addnew" value="false">
+                        <input type="hidden" id="delete" name="delete" value="true">
+                        <input type="hidden" value="{{ equip.id }}" id="id" name="id">
+                        <input type="submit" VALUE="Delete">
+                    </td>
+                </form>
             </tr>
         {% endfor %}
     </table>
@@ -58,12 +109,18 @@
             <input type="text" id="serial_id" name="serial_id" class="form-control" required>
             <label for="room">room</label>
             <input type="text" id="room" name="room" class="form-control" required>
+            <input type="hidden" id="addnew" name="addnew" value="true">
+            <input type="hidden" id="edit" name="edit" value="false">
+            <input type="hidden" id="delete" name="delete" value="false">
         </div>
         <input type="submit" class="btn btn-primary" id="Submit" value="Submit">
     </form>
 </div>
-
 <script type="text/javascript">
+    if (getCookie('currentsloi')!=null){
+        let sloi=getCookie('currentsloi');
+        window.onload=perehodKSloy(sloi);
+    }
     function perehodKSloy(idSloya)
     {
         const mainsloi = document.getElementById('mainsloi-sohr');
@@ -80,6 +137,7 @@
             if(slArr[i] == idSloya)
             {
                 document.getElementById(slArr[i]).style.display = "block";
+                document.cookie ="currentsloi="+idSloya+"; max-age=3600";
             }
             else
             {
@@ -108,6 +166,37 @@
         }
         document.getElementById("divtable").style.display = "";
         document.getElementById("room").value=filter;
+    }
+
+        function editrow(id) {
+        let table, tr, td, i, txtValue, div, input;
+        console.log(document.getElementById("addnew"));
+        console.log(document.getElementById("edit"));
+        table = document.getElementById("equip_table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            if (td[0].innerText == id) {
+                for (let y = 0; y < td.length;y++){
+                    for (let z = 0; z < td[y].getElementsByTagName("div").length; z++){
+                        let cell = td[y].getElementsByTagName("div")[z];
+                        if (cell.id == "edit_repl"){
+                            cell.style.display="none";
+                        }
+                        if (cell.id == "edit_field"){
+                            cell.style.display="";
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
     }
 </script>
 {% endblock %}

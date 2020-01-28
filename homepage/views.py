@@ -7,22 +7,43 @@ from .models import Equipment
 
 # Create your views here.
 class AddEquip(forms.Form):
-    equip_name = forms.CharField(label='equip_name', max_length=100)
-    serial_id = forms.CharField(label='serial_id', max_length=100)
-    room = forms.CharField(label='room', max_length=100)
+    id = forms.IntegerField(label='id')
+    equip_name = forms.CharField(label='equip_name', max_length=150)
+    serial_id = forms.CharField(label='serial_id', max_length=50)
+    room = forms.CharField(label='room', max_length=50)
 
 
 def index_page(request):
     if request.method == "POST":
-        form = AddEquip(data={'equip_name': request.POST['equip_name'],
-                              'serial_id': request.POST['serial_id'],
-                              'room': request.POST['room']})
-        if form.is_valid():
-            entry = Equipment(equip_name=form.cleaned_data['equip_name'],
-                              serial_id=form.cleaned_data['serial_id'],
-                              room=form.cleaned_data['room'])
-            entry.save()
+        if request.POST['addnew'] == 'true':
+            form = AddEquip(data={'id': request.POST['id'],
+                                  'equip_name': request.POST['equip_name'],
+                                  'serial_id': request.POST['serial_id'],
+                                  'room': request.POST['room']})
+            if form.is_valid():
+                entry = Equipment(equip_name=form.cleaned_data['equip_name'],
+                                  serial_id=form.cleaned_data['serial_id'],
+                                  room=form.cleaned_data['room'])
+                entry.save()
+                return HttpResponseRedirect('/homepage/')
+
+        elif request.POST['edit'] == 'true':
+            form = AddEquip(data={'id': request.POST['id'],
+                                  'equip_name': request.POST['equip_name'],
+                                  'serial_id': request.POST['serial_id'],
+                                  'room': request.POST['room']})
+            if form.is_valid():
+                editrow = Equipment.objects.get(id=form.cleaned_data['id'])
+                editrow.room = form.cleaned_data['room']
+                editrow.serial_id = form.cleaned_data['serial_id']
+                editrow.equip_name = form.cleaned_data['equip_name']
+                editrow.save()
+                return HttpResponseRedirect('/homepage/')
+        elif request.POST['delete'] == 'true':
+            delrow = Equipment.objects.get(id=request.POST['id'])
+            delrow.delete()
             return HttpResponseRedirect('/homepage/')
+
     equipment = Equipment.objects.all()
     return render(request, 'homepage/index.html',
                   {'username': auth.get_user(request).username, 'image': img, 'equipment': equipment})
