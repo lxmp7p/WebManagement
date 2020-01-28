@@ -49,6 +49,18 @@
             </tr>
         {% endfor %}
     </table>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="equip_name">equip_name</label>
+            <input type="text" id="equip_name" name="equip_name" class="form-control" required>
+            <label for="serial_id">serial_id</label>
+            <input type="text" id="serial_id" name="serial_id" class="form-control" required>
+            <label for="room">room</label>
+            <input type="text" id="room" name="room" class="form-control" required>
+        </div>
+        <input type="submit" class="btn btn-primary" id="Submit" value="Submit">
+    </form>
 </div>
 
 <script type="text/javascript">
@@ -95,6 +107,7 @@
             }
         }
         document.getElementById("divtable").style.display = "";
+        document.getElementById("room").value=filter;
     }
 </script>
 {% endblock %}
