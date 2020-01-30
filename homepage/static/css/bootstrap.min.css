@@ -26,7 +26,13 @@
 }
 
 .container {
-	max-width: 500px;
+    margin: 0 auto;
+	max-width: auto;
+}
+
+#mainsloi-sohr * {
+      margin: 0 auto;
+	max-width: auto;
 }
 
 polygon{opacity:0.0;}
