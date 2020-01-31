@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    {% load static %}
 <div class="container">
 
     <div id="mainsloi-sohr">
@@ -36,9 +37,11 @@
     <table id="equip_table" class="table border" style="margin-top: 50px" >
         <tr class=''>
             <td>id</td>
-            <td>equip_name</td>
+            <td>Наименование</td>
             <td>serial_id</td>
-            <td>room</td>
+            <td>Кабинет</td>
+            <td>Этаж</td>
+            <td>Корпус</td>
             <td></td>
             <td></td>
         </tr>
@@ -75,6 +78,23 @@
                             <input type="text" value="{{ equip.room }}" id="room" name="room">
                         </div>
                     </td>
+                      <td>
+                        <div id="edit_repl">
+                            {{ equip.floor }}
+                        </div>
+                        <div id="edit_field" style="display: none">
+                            <input type="text" value="{{ equip.floor }}" id="floor" name="floor">
+                        </div>
+                    </td>
+                      <td>
+                        <div id="edit_repl">
+                            {{ equip.building }}
+                        </div>
+                        <div id="edit_field" style="display: none">
+                            <input type="text" value="{{ equip.building }}" id="building" name="building">
+                        </div>
+                    </td>
+                    {% if username == "admin" %}
                     <td>
                         <input type="hidden" id="edit" name="edit" value="true">
                         <input type="hidden" id="addnew" name="addnew" value="false">
@@ -97,24 +117,43 @@
                         <input type="submit" VALUE="Delete">
                     </td>
                 </form>
+            {% endif %}
             </tr>
         {% endfor %}
     </table>
     <form method="POST">
         {% csrf_token %}
+
+{% if username == "admin" %}
         <div class="form-group">
-            <label for="equip_name">equip_name</label>
+            <label for="equip_name">Наименование</label>
             <input type="text" id="equip_name" name="equip_name" class="form-control" required>
             <label for="serial_id">serial_id</label>
             <input type="text" id="serial_id" name="serial_id" class="form-control" required>
-            <label for="room">room</label>
+            <label for="room">Кабинет</label>
             <input type="text" id="room" name="room" class="form-control" required>
+            <label for="floor">Этаж</label>
+            <input type="text" id="floor" name="floor" class="form-control" required>
+            <label for="building">Корпус</label>
+            <select  id="building" name="building" class="form-control" required>
+
+<option value=”Лабораторный”>Лабораторный</option>
+
+<option value=”Хозяйственный”>Хозяйственный</option>
+
+<option value=”Флексим”>Корпус Флекса</option>
+
+</select>
             <input type="hidden" id="addnew" name="addnew" value="true">
             <input type="hidden" id="edit" name="edit" value="false">
             <input type="hidden" id="delete" name="delete" value="false">
         </div>
         <input type="submit" class="btn btn-primary" id="Submit" value="Submit">
     </form>
+    {% else %}
+
+{% endif %}
+
 </div>
 <script type="text/javascript">
     if (getCookie('currentsloi')!=null){
@@ -167,7 +206,7 @@
         document.getElementById("divtable").style.display = "";
         document.getElementById("room").value=filter;
     }
-
+{% if username == "admin" %}
         function editrow(id) {
         let table, tr, td, i, txtValue, div, input;
         console.log(document.getElementById("addnew"));
@@ -191,6 +230,7 @@
             }
         }
     }
+    {% endif %}
 
     function getCookie(name) {
         let matches = document.cookie.match(new RegExp(

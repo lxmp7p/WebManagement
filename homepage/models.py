@@ -7,3 +7,5 @@ class Equipment(models.Model):
     equip_name = models.CharField(max_length=150)
     serial_id = models.CharField(max_length=50)
     room = models.CharField(max_length=50)
+    floor = models.IntegerField()
+    building = models.CharField(max_length=50)

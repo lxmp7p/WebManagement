@@ -11,24 +11,30 @@ class AddEquip(forms.Form):
     equip_name = forms.CharField(label='equip_name', max_length=150)
     serial_id = forms.CharField(label='serial_id', max_length=50)
     room = forms.CharField(label='room', max_length=50)
+    floor = forms.IntegerField(label='floor')
+    building = forms.CharField(label='building', max_length=50)
 
 
 def index_page(request):
     if request.method == "POST":
         if request.POST['addnew'] == 'true':
-            form = AddEquip(data={'id': request.POST['id'],
+            form = AddEquip(data={'id': '9999',
                                   'equip_name': request.POST['equip_name'],
                                   'serial_id': request.POST['serial_id'],
-                                  'room': request.POST['room']})
+                                  'room': request.POST['room'],
+                                  'floor': request.POST['serial_id'],
+                                  'building': request.POST['building']})
             if form.is_valid():
                 entry = Equipment(equip_name=form.cleaned_data['equip_name'],
                                   serial_id=form.cleaned_data['serial_id'],
-                                  room=form.cleaned_data['room'])
+                                  room=form.cleaned_data['room'],
+                                  floor=form.cleaned_data['floor'],
+                                  building=form.cleaned_data['building'])
                 entry.save()
                 return HttpResponseRedirect('/homepage/')
 
         elif request.POST['edit'] == 'true':
-            form = AddEquip(data={'id': request.POST['id'],
+            form = AddEquip(data={'id': '999999',
                                   'equip_name': request.POST['equip_name'],
                                   'serial_id': request.POST['serial_id'],
                                   'room': request.POST['room']})
