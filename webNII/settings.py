@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'loginsys',
+    'search.apps.SearchConfig',
     'homepage.apps.HomepageConfig',
     'authors.apps.AuthorsConfig',
     'django.contrib.admin',

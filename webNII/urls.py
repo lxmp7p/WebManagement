@@ -21,4 +21,5 @@ urlpatterns = [
     path('homepage/', include('homepage.urls')),
     path('', include('loginsys.urls')),
     path('authors/', include('authors.urls')),
+    path('search/', include('search.urls')),
 ]
