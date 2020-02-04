@@ -7,19 +7,8 @@
 {% block body %}
     {% load static %}
 <div class="container">
-        <form action="{% url 'search:search' %}" class="navbar-form navbar-left" method="get">
-    <div class="input-group">
-        <input id="search" name="iteam" type="text" class="form-control" placeholder="Поиск">
-        <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">Поиск</button>
-        </span>
-    </div>
-</form>
-    <div id="mainsloi-sohr">
-        {% for key, value in image.items %}
-            {% if key %}
-                <script type="text/javascript">
-                    var decodeEntities = (function () {
+<script type="text/javascript">
+    var decodeEntities = (function () {
                         let element = document.createElement('div');
                         function decodeHTMLEntities(str) {
                             if (str && typeof str === 'string') {
@@ -33,6 +22,19 @@
                         }
                         return decodeHTMLEntities;
                     })();
+</script>
+    <form action="{% url 'search:search' %}" class="navbar-form navbar-left searchform" method="get">
+        <div class="input-group">
+            <input id="search" name="iteam" type="text" class="form-control" placeholder="Поиск">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default">Поиск</button>
+            </span>
+        </div>
+    </form>
+    <div id="mainsloi-sohr">
+        {% for key, value in image.items %}
+            {% if key %}
+                <script type="text/javascript">
                     document.getElementById('mainsloi-sohr').innerHTML+=(decodeEntities("{{ value }}"));
                 </script>
             {% endif %}
@@ -143,14 +145,10 @@
             <input type="text" id="floor" name="floor" class="form-control" required>
             <label for="building">Корпус</label>
             <select  id="building" name="building" class="form-control" required>
-
-<option value=”Лабораторный”>Лабораторный</option>
-
-<option value=”Хозяйственный”>Хозяйственный</option>
-
-<option value=”Флексим”>Корпус Флекса</option>
-
-</select>
+                <option value=”Лабораторный”>Лабораторный</option>
+                <option value=”Хозяйственный”>Хозяйственный</option>
+                <option value=”Флексим”>Корпус Флекса</option>
+            </select>
             <input type="hidden" id="addnew" name="addnew" value="true">
             <input type="hidden" id="edit" name="edit" value="false">
             <input type="hidden" id="delete" name="delete" value="false">
