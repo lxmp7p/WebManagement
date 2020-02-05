@@ -45,6 +45,7 @@ def index_page(request):
             return HttpResponseRedirect('/homepage/')
 
     equipment = Equipment.objects.all()
+    print(equipment)
     return render(request, 'homepage/index.html',
                   {'username': auth.get_user(request).username, 'image': img, 'equipment': equipment})
 
@@ -54,7 +55,7 @@ def articles(request):
 
 
 img = {
-    'mainbuilding': '<div id="sloi-1" style="display: block; background: rgba(0, 0, 0, 0) url('
+    'mainbuilding': '<div id="sloi-1"  style="display: block; background: rgba(0, 0, 0, 0) url('
                     '../static/img/map.png) '
                     'no-repeat scroll 0% 0% / 100%; padding-bottom: 120%" class="scaling-svg-container"><svg id="svgmainid-sloi-1" '
                     'xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMid meet" fixpropchecked="true" class="scaling-svg"><a '

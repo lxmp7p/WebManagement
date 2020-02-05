@@ -446,3 +446,7 @@ iframe {
   transform: translateY(-50%);
   left: 0;
 }
+
+.html {
+  width: 1100px;
+}
