@@ -26,9 +26,14 @@
 
 </nav>
     {% block body %}
-  {% if iteam %}
-  <h1>dqwdqw</h1>
-  {% endif %}
+    <form action="{% url 'search:search' %}" class="navbar-form navbar-left searchform" method="get">
+        <div class="input-group">
+            <input id="search" name="iteam" type="text" class="form-control" placeholder="Поиск">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default">Поиск</button>
+            </span>
+        </div>
+    </form>
     {% if results %}
  <table id="equip_table" class="table border" style="margin-top: 50px" >
         <tr class=''>
@@ -42,7 +47,7 @@
             <td></td>
         </tr>
    {% for equip in results %}
-
+    {% if equip.equip_name == iteam %}
 <tr class='success'>
                 <form method="POST">
                     {% csrf_token %}
@@ -86,6 +91,7 @@
                         <div id="edit_repl">
                             {{ equip.building }}
                         </div>
+                        {% endif %}
        {% endfor %}
       </table>
 {% endif %}

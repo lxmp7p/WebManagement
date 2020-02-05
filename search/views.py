@@ -11,8 +11,8 @@ def search(request):
         iteams = []
         for p in Equipment.objects.raw('SELECT * FROM homepage_equipment'):
                 iteams.append(p)
-        print(request.get_signed_cookie)        #add parse get request
-        return render(request, 'search/search.html', {'username': auth.get_user(request).username, 'results': iteams})
+        iteam = request.GET['iteam']
+        return render(request, 'search/search.html', {'username': auth.get_user(request).username, 'results': iteams, 'iteam': iteam})
 
 # def logout(request):
 # return render(request, 'logn.html')
