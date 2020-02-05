@@ -25,7 +25,7 @@
 </script>
     <form action="{% url 'search:search' %}" class="navbar-form navbar-left searchform" method="get">
         <div class="input-group">
-            <input id="search" name="iteam" type="text" class="form-control" placeholder="Поиск">
+            <input id="search" name="iteamm" type="text" class="form-control" placeholder="Поиск">
             <span class="input-group-btn">
                 <button type="submit" class="btn btn-default">Поиск</button>
             </span>
@@ -194,26 +194,18 @@
         }
     }
 
- function filter_table(room, floor, building) {
-        let filter_room, filter_floor, filter_building, table, tr, td_room, td_floor, td_building, i, txtValue_room, txtValue_floor, txtValue_building;
-        filter_room = room.toString().toUpperCase();
-        filter_floor = floor.toString().toUpperCase();
-        filter_building = building.toString().toUpperCase();
+    function filter_table(room, floor, korp) {
+        let input,filter, table, tr, td, i, txtValue;
+        input = room;
+        filter = input.toString().toUpperCase();
         table = document.getElementById("equip_table");
         tr = table.getElementsByTagName("tr");
 
         for (i = 1; i < tr.length; i++) {
-            td_room = tr[i].getElementsByTagName("td")[3];
-            td_floor = tr[i].getElementsByTagName("td")[4];
-            td_building = tr[i].getElementsByTagName("td")[5].getElementsByTagName("div")[0];
-            if (td_room && td_floor && td_building) {
-                txtValue_room = td_room.textContent || td_room.innerText;
-                txtValue_floor = td_floor.textContent || td_floor.innerText;
-                txtValue_building = td_building.textContent || td_building.innerText;
-                if ((txtValue_room.toUpperCase().indexOf(filter_room) > -1) &&
-                    (txtValue_floor.toUpperCase().indexOf(filter_floor) > -1) &&
-                    (txtValue_building.toUpperCase().indexOf(filter_building) > -1))
-                {
+            td = tr[i].getElementsByTagName("td")[3];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
                   tr[i].style.display = "";
                 } else {
                   tr[i].style.display = "none";
@@ -221,11 +213,11 @@
             }
         }
         document.getElementById("divtable").style.display = "";
-        document.getElementById("room_addform").value=room;
+        document.getElementById("room_addform").value=filter;
         document.getElementById("floor_addform").value=floor;
         let build = document.getElementById("building_addform").options;
         for (let j = 0; j < build.length; j++) {
-            if (build[j].value == building){
+            if (build[j].value == korp){
                 build[j].selected=true;
             }
         }
