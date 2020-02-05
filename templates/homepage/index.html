@@ -87,7 +87,7 @@
                             <input type="text" value="{{ equip.room }}" id="room" name="room">
                         </div>
                     </td>
-                      <td>
+                    <td>
                         <div id="edit_repl">
                             {{ equip.floor }}
                         </div>
@@ -95,12 +95,16 @@
                             <input type="text" value="{{ equip.floor }}" id="floor" name="floor">
                         </div>
                     </td>
-                      <td>
+                    <td>
                         <div id="edit_repl">
                             {{ equip.building }}
                         </div>
                         <div id="edit_field" style="display: none">
-                            <input type="text" value="{{ equip.building }}" id="building" name="building">
+                            <select  id="building" name="building" class="form-control" required>
+                                <option value="Лабораторный" {% if equip.building == "Лабораторный" %} selected {% endif %}>Лабораторный</option>
+                                <option value="Хозяйственный" {% if equip.building == "Хозяйственный" %} selected {% endif %}>Хозяйственный</option>
+                                <option value="Флексим" {% if equip.building == "Флексим" %} selected {% endif %}>Корпус Флекса</option>
+                            </select>
                         </div>
                     </td>
                     {% if username == "admin" %}
@@ -136,18 +140,18 @@
 {% if username == "admin" %}
         <div class="form-group">
             <label for="equip_name">Наименование</label>
-            <input type="text" id="equip_name" name="equip_name" class="form-control" required>
+            <input type="text" id="equip_name_addform" name="equip_name" class="form-control" required>
             <label for="serial_id">serial_id</label>
-            <input type="text" id="serial_id" name="serial_id" class="form-control" required>
+            <input type="text" id="serial_id_addform" name="serial_id" class="form-control" required>
             <label for="room">Кабинет</label>
-            <input type="text" id="room" name="room" class="form-control" required>
+            <input type="text" id="room_addform" name="room" class="form-control" required>
             <label for="floor">Этаж</label>
-            <input type="text" id="floor" name="floor" class="form-control" required>
+            <input type="text" id="floor_addform" name="floor" class="form-control" required>
             <label for="building">Корпус</label>
-            <select  id="building" name="building" class="form-control" required>
-                <option value=”Лабораторный”>Лабораторный</option>
-                <option value=”Хозяйственный”>Хозяйственный</option>
-                <option value=”Флексим”>Корпус Флекса</option>
+            <select  id="building_addform" name="building" class="form-control" required>
+                <option value="Лабораторный">Лабораторный</option>
+                <option value="Хозяйственный">Хозяйственный</option>
+                <option value="Флексим">Корпус Флекса</option>
             </select>
             <input type="hidden" id="addnew" name="addnew" value="true">
             <input type="hidden" id="edit" name="edit" value="false">
@@ -190,7 +194,7 @@
         }
     }
 
-    function filter_table(room) {
+    function filter_table(room, floor, korp) {
         let input,filter, table, tr, td, i, txtValue;
         input = room;
         filter = input.toString().toUpperCase();
@@ -209,7 +213,14 @@
             }
         }
         document.getElementById("divtable").style.display = "";
-        document.getElementById("room").value=filter;
+        document.getElementById("room_addform").value=filter;
+        document.getElementById("floor_addform").value=floor;
+        let build = document.getElementById("building_addform").options;
+        for (let j = 0; j < build.length; j++) {
+            if (build[j].value == korp){
+                build[j].selected=true;
+            }
+        }
     }
 {% if username == "admin" %}
         function editrow(id) {
