@@ -25,7 +25,7 @@
 </script>
     <form action="{% url 'search:search' %}" class="navbar-form navbar-left searchform" method="get">
         <div class="input-group">
-            <input id="search" name="iteam" type="text" class="form-control" placeholder="Поиск">
+            <input id="search" name="iteam" type="text" class="form-control" placeholder="Поиск (чувствителен к регистру)">
             <span class="input-group-btn">
                 <button type="submit" class="btn btn-default">Поиск</button>
             </span>
@@ -51,8 +51,10 @@
             <td>Кабинет</td>
             <td>Этаж</td>
             <td>Корпус</td>
+            {% if username == 'admin' %}
             <td></td>
             <td></td>
+            {% endif %}
         </tr>
         {% for equip in equipment %}
             <tr class='success'>
@@ -185,6 +187,7 @@
             if(slArr[i] == idSloya)
             {
                 document.getElementById(slArr[i]).style.display = "block";
+                document.cookie ="lastsloi="+getCookie('currentsloi')+"; max-age=3600";
                 document.cookie ="currentsloi="+idSloya+"; max-age=3600";
             }
             else
@@ -192,6 +195,10 @@
                 document.getElementById(slArr[i]).style.display = "none";
             }
         }
+    }
+
+    function backsloi(targetsloi, idbutton) {
+
     }
 
     function filter_table(room, floor, korp) {
