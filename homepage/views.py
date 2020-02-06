@@ -78,7 +78,7 @@ img = {
                     'id="poly-5" points="" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" '
                     'fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" '
                     'stroke="#333333"></polygon></a></svg> </svg></div>',
-    'xoz_1': '<div id="xoz_1"  style="display: none; background: rgba(0, 0, 0, 0) url(../static/img/f.png) no-repeat '
+    'xoz_1': '<div id="xoz_1" style="display: none;"><button style="margin-left:45%; margin-bottom:1%" type="button" class="btn btn-primary" onclick="perehodKSloy(\'xoz\')">Назад</button><div style="background: rgba(0, 0, 0, 0) url(../static/img/f.png) no-repeat '
              'scroll 0% 0% / 100%; padding-bottom: 50%" class="scaling-svg-container"><svg id="svgmainid-sloi-1" '
              'xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"'
              'viewBox="0 0 500 250" preserveAspectRatio="xMidYMid meet" fixpropchecked="true" class="scaling-svg"><a href="#poligon" '
@@ -125,8 +125,8 @@ img = {
              'onclick=filter_table(11,1,"Хозяйственный")><polygon '
              'id="poly-17" points="" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" '
              'fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" '
-             'stroke="#333333"></polygon></a></svg></div>',
-    'xoz_2': '<div id="xoz_2"  style="display: none; background: rgba(0, 0, 0, 0) url(../static/img/xoz_2.png) '
+             'stroke="#333333"></polygon></a></svg></div></div>',
+    'xoz_2': '<div id="xoz_2" style="display: none;"><button style="margin-left:45%; margin-bottom:1%" type="button" class="btn btn-primary" onclick="perehodKSloy(\'xoz\')">Назад</button><div style="background: rgba(0, 0, 0, 0) url(../static/img/xoz_2.png) '
              'no-repeat '
              'scroll 0% 0% / 100%; padding-bottom: 72%" class="scaling-svg-container"> <svg id="svgmainid-sloi-1" '
              'xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"'
@@ -193,8 +193,8 @@ img = {
              'stroke="#333333"></polygon></a><a href="#poligon" id="apoly-22" onclick=filter_table(15,2,"Хозяйственный")><polygon '
              'id="poly-22" points="" '
              'fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" fill-opacity="0.8" '
-             'stroke-linecap="round" stroke-linejoin="round" stroke="#333333"></polygon></a></svg></div>',
-    'xoz': '<div id="xoz"  style="display: none; background: rgba(0, 0, 0, 0) url(../static/img/xoz_build.jpg)  '
+             'stroke-linecap="round" stroke-linejoin="round" stroke="#333333"></polygon></a></svg></div></div>',
+    'xoz': '<div id="xoz" style="display: none;"><button style="margin-left:45%; margin-bottom:1%" type="button" class="btn btn-primary" onclick="perehodKSloy(\'sloi-1\')">Назад</button><div style="background: rgba(0, 0, 0, 0) url(../static/img/xoz_build.jpg)  '
            'no-repeat scroll 0% 0% / 100%; padding-bottom: 72%" class="scaling-svg-container"> <svg id="svgmainid-sloi-1" '
            'xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"'
            'viewBox="0 0 700 500" preserveAspectRatio="xMidYMid meet" fixpropchecked="true" class="scaling-svg"><a href="#poligon" '
@@ -209,9 +209,9 @@ img = {
            'stroke-linecap="round" stroke-linejoin="round" stroke="#333333"></polygon></a><a href="#poligon" '
            'id="apoly-4"><polygon id="poly-4" points="" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" '
            'fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" '
-           'stroke="#333333"></polygon></a></svg></div>',
+           'stroke="#333333"></polygon></a></svg></div></div>',
 
-    'lab': '<div id="lab"  style="display: none; background: rgba(0, 0, 0, 0) url(../static/img/lab/lab.jpg) '
+    'lab': '<div id="lab" style="display: none;"><button style="margin-left:45%; margin-bottom:1%" type="button" class="btn btn-primary" onclick="perehodKSloy(\'sloi-1\')">Назад</button><div style="background: rgba(0, 0, 0, 0) url(../static/img/lab/lab.jpg) '
            'no-repeat scroll 0% 0% / 100%; padding-bottom: 74%" class="scaling-svg-container"> <svg xmlns="http://www.w3.org/2000/svg" '
            'id="svgmainid-sloi-1" viewBox="0 0 500 370" preserveAspectRatio="xMidYMid meet" fixpropchecked="true" '
            'class="scaling-svg" xmlns:svg="http://www.w3.org/2000/svg"><a id="apoly-2" href="#poligon" '
@@ -227,8 +227,8 @@ img = {
            'fill-rule="nonzero" stroke="#333333" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" '
            'points="480,94 486,138 6,136 8,97" fillhover="#e5e5e5" /></a><a id="apoly-6" href="#poligon"><polygon '
            'id="poly-6" fill="#d2d2d2" fill-opacity="0.8" fill-rule="nonzero" stroke="#333333" stroke-linecap="round" '
-           'stroke-linejoin="round" stroke-width="1" points="" fillhover="#e5e5e5" /></a></svg></div>',
-    'lab_1': '<div id="lab_1"  style="display: none; background: rgba(0, 0, 0, 0) url(../static/img/lab/lab_1.png) '
+           'stroke-linejoin="round" stroke-width="1" points="" fillhover="#e5e5e5" /></a></svg></div></div>',
+    'lab_1': '<div id="lab_1" style="display: none;"><button style="margin-left:45%; margin-bottom:1%" type="button" class="btn btn-primary" onclick="perehodKSloy(\'lab\')">Назад</button><div style="background: rgba(0, 0, 0, 0) url(../static/img/lab/lab_1.png) '
              'no-repeat scroll 0% 0% / 100%; padding-bottom: 78%" class="scaling-svg-container"> <svg id="svgmainid-sloi-1" '
              'xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"'
              'viewBox="0 0 900 700" preserveAspectRatio="xMidYMid meet" fixpropchecked="true" class="scaling-svg"><a href="#poligon" '
@@ -374,8 +374,8 @@ img = {
              'fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" '
              'stroke-linejoin="round" stroke="#333333"></polygon></a><a href="#poligon" id="apoly-61" onclick=filter_table(47,1,"Лабораторный")><polygon '
              'id="poly-61" points="" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" '
-             'fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" stroke="#333333"></polygon></a></svg>',
-    'lab_2': '<div id="lab_2"  style="display: none; background: rgba(0, 0, 0, 0) url(../static/img/lab/lab_2.jpg) '
+             'fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" stroke="#333333"></polygon></a></svg></div>',
+    'lab_2': '<div id="lab_2" style="display: none;"><button style="margin-left:45%; margin-bottom:1%" type="button" class="btn btn-primary" onclick="perehodKSloy(\'lab\')">Назад</button><div style="background: rgba(0, 0, 0, 0) url(../static/img/lab/lab_2.jpg) '
              'no-repeat scroll 0% 0% / 100%; padding-bottom: 57%" class="scaling-svg-container"> <svg xmlns="http://www.w3.org/2000/svg" '
              'id="svgmainid-sloi-1" viewBox="0 0 700 400" preserveAspectRatio="xMidYMid meet" fixpropchecked="true" '
              'class="scaling-svg" xmlns:svg="http://www.w3.org/2000/svg"><a id="apoly-1" '
@@ -531,9 +531,9 @@ img = {
              '/></a><a id="apoly-57" href="#poligon" onclick=filter_table(57,2,"Лабораторный")><polygon id="poly-57" '
              'fill="#d2d2d2" fill-opacity="0.8" '
              'fill-rule="nonzero" stroke="#333333" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" '
-             'points="" fillhover="#e5e5e5" /></a></svg></div> ',
+             'points="" fillhover="#e5e5e5" /></a></svg></div></div> ',
 
-    'lab_3' : '<div id="lab_3"  style="display: none; background: rgba(0, 0, 0, 0) url(../static/img/lab/lab_3.jpg) '
+    'lab_3' : '<div id="lab_3" style="display: none;"><button style="margin-left:45%; margin-bottom:1%" type="button" class="btn btn-primary" onclick="perehodKSloy(\'lab\')">Назад</button><div style="background: rgba(0, 0, 0, 0) url(../static/img/lab/lab_3.jpg) '
               'no-repeat scroll 0% 0% / 100%; padding-bottom: 50%" class="scaling-svg-container"><svg id="svgmainid-sloi-1" '
               'xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"'
               'viewBox="0 0 500 250" preserveAspectRatio="xMidYMid meet" fixpropchecked="true" class="scaling-svg"><a href="#poligon" '
@@ -734,8 +734,8 @@ img = {
               'stroke-linejoin="round" stroke="#333333"></polygon></a><a href="#poligon" id="apoly-73" onclick=filter_table(71,3,"Лабораторный")><polygon '
               'id="poly-73" points="" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" '
               'fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" '
-              'stroke="#333333"></polygon></a></svg></div></div>',
-    'lab_4' : '<div id="lab_4"  style="display: none; background: rgba(0, 0, 0, 0) url(../static/img/lab/lab_4.png) '
+              'stroke="#333333"></polygon></a></svg></div></div></div>',
+    'lab_4' : '<div id="lab_4" style="display: none;"><button style="margin-left:45%; margin-bottom:1%" type="button" class="btn btn-primary" onclick="perehodKSloy(\'lab\')">Назад</button><div style="background: rgba(0, 0, 0, 0) url(../static/img/lab/lab_4.png) '
               'no-repeat scroll 0% 0% / 100%; padding-bottom: 50%" class="scaling-svg-container""> <svg id="svgmainid-sloi-1" '
               'xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" '
               'viewBox="0 0 500 250" preserveAspectRatio="xMidYMid meet" fixpropchecked="true" class="scaling-svg"><a href="#poligon" '
@@ -873,5 +873,5 @@ img = {
               'stroke-linecap="round" stroke-linejoin="round" stroke="#333333"></polygon></a><a href="#poligon" '
               'id="apoly-52" onclick=filter_table(49,4,"Лабораторный")><polygon id="poly-52" points="" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" '
               'fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" '
-              'stroke="#333333"></polygon></a></svg></div></div>',
+              'stroke="#333333"></polygon></a></svg></div></div></div',
 }
