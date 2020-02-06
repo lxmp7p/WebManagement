@@ -55,11 +55,11 @@ def articles(request):
 
 
 img = {
-    'mainbuilding': '<div id="sloi-1"  style="display: block; background: rgba(0, 0, 0, 0) url('
+    'mainbuilding': '<div id="sloi-1" style="display: block; background: rgba(0, 0, 0, 0) url('
                     '../static/img/map.png) '
                     'no-repeat scroll 0% 0% / 100%; padding-bottom: 120%" class="scaling-svg-container"><svg id="svgmainid-sloi-1" '
-                    'xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMid meet" fixpropchecked="true" class="scaling-svg"><a '
-                    'href="#poligon" id="apoly-1" onclick="perehodKSloy(\'xoz\')"><polygon id="poly-1" points=" '
+                    'xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" preserveAspectRatio="xMidYMid meet" fixpropchecked="true" class="scaling-svg"><a  '
+                    'href="#poligon" id="apoly-1" onclick="perehodKSloy(\'xoz\')" ><polygon  id="poly-1" points=" '
                     '168,367 160,384 168,388 174,372" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" '
                     'fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" '
                     'stroke="#333333"></polygon></a> <a href="#poligon" id="apoly-1"><polygon id="poly-1" points="" '
@@ -77,7 +77,9 @@ img = {
                     'stroke-linejoin="round" stroke="#333333"></polygon></a><a href="#poligon" id="apoly-5"><polygon '
                     'id="poly-5" points="" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" '
                     'fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" '
-                    'stroke="#333333"></polygon></a> <a href="#poligon" id="apoly-6"><polygon id="poly-6" points=" 96,525 111,488 82,478 84,473 109,482 116,465 57,439 49,458 70,466 67,476 49,470 52,463 42,460 27,494 35,499 45,482 97,500 88,519" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" stroke="#333333" style="--darkreader-inline-fill:#d6d3cd; --darkreader-inline-stroke:#d6d3cd;" data-darkreader-inline-fill="" data-darkreader-inline-stroke=""></polygon></a><a href="#poligon" id="apoly-7"><polygon id="poly-7" points="" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" stroke="#333333" style="--darkreader-inline-fill:#d6d3cd; --darkreader-inline-stroke:#d6d3cd;" data-darkreader-inline-fill="" data-darkreader-inline-stroke=""></polygon></a>',
+                    'stroke="#333333"></polygon></a> <a href="#poligon" id="apoly-6"><polygon id="poly-6" points=" 96,525 111,488 82,478 84,473 109,482 116,465 57,439 49,458 70,466 67,476 49,470 52,463 42,460 27,494 35,499 45,482 97,500 88,519" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" stroke="#333333" style="--darkreader-inline-fill:#d6d3cd; --darkreader-inline-stroke:#d6d3cd;" data-darkreader-inline-fill="" data-darkreader-inline-stroke=""></polygon></a><a href="#poligon" id="apoly-7"><polygon id="poly-7" points="" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" stroke="#333333" style="--darkreader-inline-fill:#d6d3cd; --darkreader-inline-stroke:#d6d3cd;" data-darkreader-inline-fill="" data-darkreader-inline-stroke=""></polygon></a>'
+                    '<a href="#poligon" id="apoly-8"><polygon id="poly-8" points=" 96,545 104,523 114,526 108,541 118,545 114,554" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" stroke="#333333" style="--darkreader-inline-fill:#d6d3cd; --darkreader-inline-stroke:#d6d3cd;" data-darkreader-inline-fill="" data-darkreader-inline-stroke=""></polygon></a>'
+                    '<a href="#poligon" id="apoly-9"><polygon id="poly-9" points=" 13,510 22,489 13,486 7,499 0,499 0,506" fill="#d2d2d2" fillhover="#e5e5e5" stroke-width="1" fill-rule="nonzero" fill-opacity="0.8" stroke-linecap="round" stroke-linejoin="round" stroke="#333333" style="--darkreader-inline-fill:#d6d3cd; --darkreader-inline-stroke:#d6d3cd;" </div>  data-darkreader-inline-fill="" data-darkreader-inline-stroke=""></polygon></a>' ,
     'xoz_1': '<div id="xoz_1" style="display: none;"><button style="margin-left:45%; margin-bottom:1%" type="button" class="btn btn-primary" onclick="perehodKSloy(\'xoz\')">Назад</button><div style="background: rgba(0, 0, 0, 0) url(../static/img/f.png) no-repeat '
              'scroll 0% 0% / 100%; padding-bottom: 50%" class="scaling-svg-container"><svg id="svgmainid-sloi-1" '
              'xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"'
