@@ -191,22 +191,22 @@
         }
     }
 
-    function backsloi(targetsloi, idbutton) {
-
-    }
-
     function filter_table(room, floor, korp) {
-        let input,filter, table, tr, td, i, txtValue;
-        input = room;
-        filter = input.toString().toUpperCase();
+        let table, tr, td_room, td_floor, td_building, i, txtValue_room, txtValue_floor, txtValue_building;
         table = document.getElementById("equip_table");
         tr = table.getElementsByTagName("tr");
-
+ 
         for (i = 1; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[3];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            td_room = tr[i].getElementsByTagName("td")[3];
+            td_floor = tr[i].getElementsByTagName("td")[4];
+            td_building = tr[i].getElementsByTagName("td")[5].getElementsByTagName("div")[0];
+            if (td_room && td_floor && td_building) {
+                txtValue_room = td_room.textContent || td_room.innerText;
+                txtValue_floor = td_floor.textContent || td_floor.innerText;
+                txtValue_building = td_building.textContent || td_building.innerText;
+                if (txtValue_room.toUpperCase().indexOf(room.toString().toUpperCase()) > -1 &&
+                    txtValue_floor.toUpperCase().indexOf(floor.toString().toUpperCase()) > -1 &&
+                    txtValue_building.toUpperCase().indexOf(korp.toString().toUpperCase()) > -1) {
                   tr[i].style.display = "";
                 } else {
                   tr[i].style.display = "none";
@@ -214,7 +214,7 @@
             }
         }
         document.getElementById("divtable").style.display = "";
-        document.getElementById("room_addform").value=filter;
+        document.getElementById("room_addform").value=room.toString().toUpperCase();
         document.getElementById("floor_addform").value=floor;
         let build = document.getElementById("building_addform").options;
         for (let j = 0; j < build.length; j++) {
