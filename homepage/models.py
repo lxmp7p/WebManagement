@@ -11,6 +11,7 @@ class Equipment(models.Model):
     room = models.CharField(max_length=50)
     floor = models.IntegerField()
     building = models.CharField(max_length=50)
+    quantity = models.IntegerField()
 
 
 class AddEquip(forms.Form):
@@ -20,3 +21,4 @@ class AddEquip(forms.Form):
     room = forms.CharField(label='room', max_length=50)
     floor = forms.IntegerField(label='floor')
     building = forms.CharField(label='building', max_length=50)
+    quantity = forms.IntegerField(label='quantity')

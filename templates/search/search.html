@@ -44,6 +44,7 @@
             <td>Кабинет</td>
             <td>Этаж</td>
             <td>Корпус</td>
+            <td>Кол-во</td>
             {% if username == 'admin' %}
             <td></td>
             <td></td>
@@ -100,6 +101,14 @@
                                 <option value="Хозяйственный" {% if equip.building == "Хозяйственный" %} selected {% endif %}>Хозяйственный</option>
                                 <option value="Флексим" {% if equip.building == "Флексим" %} selected {% endif %}>Корпус Флекса</option>
                             </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div  id="edit_repl">
+                            {{ equip.quantity }}
+                        </div>
+                        <div id="edit_field" style="display: none">
+                            <input type="text" value="{{ equip.quantity }}" id="quantity" name="quantity">
                         </div>
                     </td>
                     {% if username == "admin" %}

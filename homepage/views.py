@@ -13,13 +13,15 @@ def index_page(request):
                                   'serial_id': request.POST['serial_id'],
                                   'room': request.POST['room'],
                                   'floor': request.POST['floor'],
-                                  'building': request.POST['building']})
+                                  'building': request.POST['building'],
+                                  'quantity': request.POST['quantity']})
             if form.is_valid():
                 entry = Equipment(equip_name=form.cleaned_data['equip_name'],
                                   serial_id=form.cleaned_data['serial_id'],
                                   room=form.cleaned_data['room'],
                                   floor=form.cleaned_data['floor'],
-                                  building=form.cleaned_data['building'])
+                                  building=form.cleaned_data['building'],
+                                  quantity=form.cleaned_data['quantity'])
                 entry.save()
                 return HttpResponseRedirect('/homepage/')
 
@@ -28,7 +30,8 @@ def index_page(request):
                                   'serial_id': request.POST['serial_id'],
                                   'room': request.POST['room'],
                                   'floor': request.POST['floor'],
-                                  'building': request.POST['building']})
+                                  'building': request.POST['building'],
+                                  'quantity': request.POST['quantity']})
             if form.is_valid():
                 editrow = Equipment.objects.get(id=request.POST['id'])
                 editrow.room = form.cleaned_data['room']
@@ -37,6 +40,7 @@ def index_page(request):
                 editrow.room = form.cleaned_data['room']
                 editrow.floor = form.cleaned_data['floor']
                 editrow.building = form.cleaned_data['building']
+                editrow.quantity = form.cleaned_data['quantity']
                 editrow.save()
                 return HttpResponseRedirect('/homepage/')
         elif request.POST['delete'] == 'true':
