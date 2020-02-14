@@ -7,7 +7,7 @@
 {% block body %}
     {% load static %}
 <div class="container">
-    <p><a title="Рисунки различных животных и не только...">Рисунки</a></p>
+    <!--<p><a title="Рисунки различных животных и не только...">Рисунки</a></p>-->
 <script type="text/javascript">
     var decodeEntities = (function () {
                         let element = document.createElement('div');
@@ -45,6 +45,7 @@
             <td>Кабинет</td>
             <td>Этаж</td>
             <td>Корпус</td>
+            <td>Кол-во</td>
             {% if username == 'admin' %}
             <td></td>
             <td></td>
@@ -103,6 +104,14 @@
                             </select>
                         </div>
                     </td>
+                    <td>
+                        <div  id="edit_repl">
+                            {{ equip.quantity }}
+                        </div>
+                        <div id="edit_field" style="display: none">
+                            <input type="text" value="{{ equip.quantity }}" id="quantity" name="quantity">
+                        </div>
+                    </td>
                     {% if username == "admin" %}
                     <td>
                         <input type="hidden" id="edit" name="edit" value="true">
@@ -149,6 +158,8 @@
                 <option value="Хозяйственный">Хозяйственный</option>
                 <option value="Флексим">Корпус Флекса</option>
             </select>
+            <label for="quantity">Количество</label>
+            <input type="text" id="quantity_addform" name="quantity" class="form-control" required>
             <input type="hidden" id="addnew" name="addnew" value="true">
             <input type="hidden" id="edit" name="edit" value="false">
             <input type="hidden" id="delete" name="delete" value="false">
@@ -225,28 +236,28 @@
     }
 {% if username == "admin" %}
         function editrow(id) {
-        let table, tr, td, i, txtValue, div, input;
-        console.log(document.getElementById("addnew"));
-        console.log(document.getElementById("edit"));
-        table = document.getElementById("equip_table");
-        tr = table.getElementsByTagName("tr");
-        for (i = 1; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td");
-            if (td[0].innerText == id) {
-                for (let y = 0; y < td.length;y++){
-                    for (let z = 0; z < td[y].getElementsByTagName("div").length; z++){
-                        let cell = td[y].getElementsByTagName("div")[z];
-                        if (cell.id == "edit_repl"){
-                            cell.style.display="none";
-                        }
-                        if (cell.id == "edit_field"){
-                            cell.style.display="";
+            let table, tr, td, i, txtValue, div, input;
+            console.log(document.getElementById("addnew"));
+            console.log(document.getElementById("edit"));
+            table = document.getElementById("equip_table");
+            tr = table.getElementsByTagName("tr");
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                if (td[0].innerText == id) {
+                    for (let y = 0; y < td.length;y++){
+                        for (let z = 0; z < td[y].getElementsByTagName("div").length; z++){
+                            let cell = td[y].getElementsByTagName("div")[z];
+                            if (cell.id == "edit_repl"){
+                                cell.style.display="none";
+                            }
+                            if (cell.id == "edit_field"){
+                                cell.style.display="";
+                            }
                         }
                     }
                 }
             }
         }
-    }
     {% endif %}
 
     function getCookie(name) {
