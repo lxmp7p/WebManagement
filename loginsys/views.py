@@ -9,7 +9,6 @@ from django.core import *
 
 def login(request):
     if request.POST:
-        print(request)
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         user = auth.authenticate(username=username, password=password)
@@ -25,7 +24,6 @@ def login(request):
 
 
 def logout(request):
-    print(request)
     auth.logout(request)
     return redirect('../')
 

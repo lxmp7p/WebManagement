@@ -45,7 +45,6 @@ def index_page(request):
             return HttpResponseRedirect('/homepage/')
 
     equipment = Equipment.objects.all()
-    print(equipment)
     return render(request, 'homepage/index.html',
                   {'username': auth.get_user(request).username, 'image': img, 'equipment': equipment})
 
